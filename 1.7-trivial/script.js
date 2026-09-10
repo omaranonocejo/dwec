@@ -4,7 +4,7 @@ let zuzenak = 0;
 
 let okerrak = 0;
 
-let categoriasFalladas = []
+let kategoriaOkerrak = []
 
 let galderak = [
     {
@@ -68,7 +68,7 @@ function erakutsiGaldera(galdera) {
     } else {
         alert("Erantzun okerra!");
         okerrak++;
-        categoriasFalladas.push(galdera.kategoria);
+        kategoriaOkerrak.push(galdera.kategoria);
     }
 
 }
@@ -77,7 +77,7 @@ function jokatu() {
     puntuak = 0;
     zuzenak = 0;
     okerrak = 0;
-    categoriasFalladas = [];
+    kategoriaOkerrak = [];
     let geratzenDira = [...galderak];
     while (zuzenak < 4 && okerrak < 3 && geratzenDira.length > 0) {
         let galderaRandom = Math.floor(Math.random() * geratzenDira.length);
@@ -88,5 +88,5 @@ function jokatu() {
         Puntuak: ${puntuak}
         Zuzenak: ${zuzenak}
         Okerrak: ${okerrak}
-        Falladutako kategoriak: ${categoriasFalladas.join(", ")}`)
+        Falladutako kategoriak: ${kategoriaOkerrak.join(", ")}`)
 }
