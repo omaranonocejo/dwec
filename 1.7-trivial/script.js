@@ -4,7 +4,7 @@ let zuzenak = 0;
 
 let okerrak = 0;
 
-let categoriasFalladas  = []
+let categoriasFalladas = []
 
 let galderak = [
     {
@@ -59,7 +59,7 @@ function erakutsiGaldera(galdera) {
         3. ${galdera.erantzunak[2]}
         4. ${galdera.erantzunak[3]}`);
 
-        let aukeratutakoErantzuna = galdera.erantzunak[erantzuna - 1];
+    let aukeratutakoErantzuna = galdera.erantzunak[erantzuna - 1];
 
     if (aukeratutakoErantzuna === galdera.erantzunZuzena) {
         alert("Erantzun zuzena!");
@@ -74,6 +74,10 @@ function erakutsiGaldera(galdera) {
 }
 
 function jokatu() {
+    puntuak = 0;
+    zuzenak = 0;
+    okerrak = 0;
+    categoriasFalladas = [];
     let geratzenDira = [...galderak];
     while (zuzenak < 4 && okerrak < 3 && geratzenDira.length > 0) {
         let galderaRandom = Math.floor(Math.random() * geratzenDira.length);
