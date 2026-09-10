@@ -52,12 +52,12 @@ let galderak = [
 
 function erakutsiGaldera(galdera) {
     let erantzuna = prompt(
-        `${galdera.enuntziatua} 
-        Aukeratu zenbaki bat:
-        1. ${galdera.erantzunak[0]}
-        2. ${galdera.erantzunak[1]}
-        3. ${galdera.erantzunak[2]}
-        4. ${galdera.erantzunak[3]}`);
+`${galdera.enuntziatua} 
+Aukeratu zenbaki bat:
+1. ${galdera.erantzunak[0]}
+2. ${galdera.erantzunak[1]}
+3. ${galdera.erantzunak[2]}
+4. ${galdera.erantzunak[3]}`);
 
     let aukeratutakoErantzuna = galdera.erantzunak[erantzuna - 1];
 
@@ -78,15 +78,26 @@ function jokatu() {
     zuzenak = 0;
     okerrak = 0;
     kategoriaOkerrak = [];
+    egoera = "";
     let geratzenDira = [...galderak];
     while (zuzenak < 4 && okerrak < 3 && geratzenDira.length > 0) {
         let galderaRandom = Math.floor(Math.random() * geratzenDira.length);
         erakutsiGaldera(geratzenDira[galderaRandom]);
         geratzenDira.splice(galderaRandom, 1);
     }
-    alert(`Hau da zure resumena:
-        Puntuak: ${puntuak}
-        Zuzenak: ${zuzenak}
-        Okerrak: ${okerrak}
-        Falladutako kategoriak: ${kategoriaOkerrak.join(", ")}`)
+    if (zuzenak === 4) {
+        egoera = "Irabazi duzu!";
+    } else if (okerrak === 3) {
+        egoera = "Galdu duzu, saiatu berriro!";
+    } else {
+        egoera = "Ez daude galderarik gehiago, amaitu da jolasa!";
+    }
+
+    alert(egoera);
+
+    alert(`Hona emen zure jokoaren laburpena:
+Puntuak: ${puntuak}
+Zuzenak: ${zuzenak}
+Okerrak: ${okerrak}
+Falladutako kategoriak: ${kategoriaOkerrak.join(", ")}`)
 }
